@@ -9,8 +9,8 @@
         <div class="article-title">
           <h2>{{ article.name }} - {{ article.price }}€</h2>
           <div>
-          <button @click="deleteArticle(article.id)">Supprimer</button>
-          <button @click="editArticle(article)">Modifier</button>
+            <button @click="deleteArticle(article.id)">Supprimer</button>
+            <button @click="editArticle(article)">Modifier</button>
           </div>
         </div>
         <p>{{ article.description }}</p>

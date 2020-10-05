@@ -34,7 +34,7 @@ router.use((req, res, next) => {
  * Cette route doit retourner le panier de l'utilisateur, grâce à req.session
  */
 router.get('/panier', (req, res) => {
-  res.status(501).json({ message: 'Not implemented' })
+  res.json(req.session.panier.articles)
 })
 
 /*
@@ -64,8 +64,27 @@ router.put('/panier/:articleId', (req, res) => {
 /*
  * Cette route doit supprimer un article dans le panier
  */
+
 router.delete('/panier/:articleId', (req, res) => {
-  res.status(501).json({ message: 'Not implemented' })
+  const id = parseInt(req.params.articleId) // we recup the article id 
+  var i = 0
+
+  if(isNaN(id) || (id > article.length)){
+    res.status(400).json({message:'error'})
+    return
+  } // we test if not number or not in the articles arrays, there is an error 
+
+  while(i < req.session.panier.articles.length && req.session.panier.articles[i].id != id){
+    i++
+  }
+  if(req.session.panier.articles[i].id != id){
+    res.status(400).json({message: 'error'}) // if the id of the article is not found into the articles arrays
+    return
+  }
+
+  req.session.panier.articles.splice(1,1) // we remove the wanted article from the basket
+
+  res.json(res.session.panier.articles) // we return the modified array 
 })
 
 
