@@ -91,7 +91,7 @@ router.delete('/panier/:articleId', (req, res) => {
   const id = parseInt(req.params.articleId) // we recup the article id 
   var i = 0
 
-  if(isNaN(id) || (id > article.length)){
+  if(isNaN(id) || (id > articles.length)){
     res.status(400).json({message:'bad request'})
     return
   } // we test if not number or not in the articles arrays, there is an error 
