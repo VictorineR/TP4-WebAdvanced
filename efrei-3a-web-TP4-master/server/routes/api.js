@@ -92,19 +92,19 @@ router.delete('/panier/:articleId', (req, res) => {
   var i = 0
 
   if(isNaN(id) || (id > article.length)){
-    res.status(400).json({message:'error'})
+    res.status(400).json({message:'bad request'})
     return
   } // we test if not number or not in the articles arrays, there is an error 
 
   while(i < req.session.panier.articles.length && req.session.panier.articles[i].id != id){
-    i++
+    i++;
   }
   if(req.session.panier.articles[i].id != id){
-    res.status(400).json({message: 'error'}) // if the id of the article is not found into the articles arrays
+    res.status(400).json({message: 'bad request'}) // if the id of the article is not found into the articles arrays
     return
   }
 
-  req.session.panier.articles.splice(1,1) // we remove the wanted article from the basket
+  req.session.panier.articles.splice(i,1) // we remove the wanted article from the basket
 
   res.json(res.session.panier.articles) // we return the modified array 
 })
