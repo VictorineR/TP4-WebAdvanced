@@ -42,16 +42,38 @@ router.get('/panier', (req, res) => {
  * Le body doit contenir l'id de l'article, ainsi que la quantité voulue
  */
 router.post('/panier', (req, res) => {
-  res.status(501).json({ message: 'Not implemented' })
+  const id = parseInt(req.body.id) 
+  const quantity = parseInt(req.body.quantity)
+  
+  if (isNaN(id) || id>articles.length || 
+    isNaN(quantity) || quantity <= 0){
+    
+    res.status(400).json({ message:'bad request'})
+    return
+  }
+  
+  for (var i= 0; i < req.session.panier.articles.length; i++){
+    if (req.session.panier.articles[i].id == id){
+      res.status(400).json ({ message: 'bad resquest'})
+    }
+  }
+
+  const article = {
+    id: id, 
+    quantity: quantity
+  }
+
+  req.session.panier.articles.push(article)
+  res.json(req.session.panier.articles)
 })
 
-/*
- * Cette route doit permettre de confirmer un panier, en recevant le nom et prénom de l'utilisateur
- * Le panier est ensuite supprimé grâce à req.session.destroy()
- */
+/* Remettre des commentaire */
+
 router.post('/panier/pay', (req, res) => {
-  res.status(501).json({ message: 'Not implemented' })
+  const Prénom = req.body.Prénom
+  const Nom = req.body.Nom
 })
+
 
 /*
  * Cette route doit permettre de changer la quantité d'un article dans le panier
