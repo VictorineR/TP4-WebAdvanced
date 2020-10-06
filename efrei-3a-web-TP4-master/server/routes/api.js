@@ -80,7 +80,28 @@ router.post('/panier/pay', (req, res) => {
  * Le body doit contenir la quantité voulue
  */
 router.put('/panier/:articleId', (req, res) => {
-  res.status(501).json({ message: 'Not implemented' })
+  const id = parseInt(req.params.articleId)
+  const quantity = parseInt(req.body.quantity) // we recup the quantity value
+  var i = 0
+
+  if(isNaN(id) || (id > articles.length || quantity <= 0)){
+    res.status(400).json({message:'bad request'})
+    return}
+
+    while(i < req.session.panier.articles.length && req.session.panier.articles[i].id != id){
+      i++;
+    }
+
+    if(req.session.panier.articles[i].id != id){
+      res.status(400).json({message: 'bad request'}) // if the id of the article is not found into the articles arrays
+      return
+    }
+
+    req.session.panier.articles[i].quantity = quantity // we change the value quantity
+
+    res.json(req.session.panier.articles) // we return the basket
+
+ 
 })
 
 /*
