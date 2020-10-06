@@ -1,7 +1,9 @@
 <template>
   <div>
     <h2>Mon Panier</h2>
-    <!-- TODO -->
+    <ul v-for="article in panier" :key="article.id">
+      <li>Id: {{ article.id }} - Quantity: {{ article.quantity }} </li>
+    </ul>
   </div>
 </template>
 

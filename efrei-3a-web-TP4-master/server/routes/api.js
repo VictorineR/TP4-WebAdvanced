@@ -138,7 +138,7 @@ router.delete('/panier/:articleId', (req, res) => {
 
   req.session.panier.articles.splice(i,1) // we remove the wanted article from the basket
 
-  res.json(res.session.panier.articles) // we return the modified array 
+  res.json(res.session.panier) // we return the modified array 
 })
 
 

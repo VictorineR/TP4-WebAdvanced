@@ -53,6 +53,17 @@ var app = new Vue({
       await axios.delete('/api/article/' + articleId)
       const index = this.articles.findIndex(a => a.id === articleId)
       this.articles.splice(index, 1)
-    }
+    },
+    async removeFromPanier (articleId) {
+      
+      const res2 = await axios.delete('/api/panier/' + articleId)
+      this.panier = res2.data
+    },
+
+    async putInPanier (articleId) {
+      
+      const res = await axios.put('/api/panier/:articleId' + articleId)
+      this.panier = res.data
+    },
   }
 })
