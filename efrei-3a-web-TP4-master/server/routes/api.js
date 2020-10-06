@@ -70,8 +70,19 @@ router.post('/panier', (req, res) => {
 /* Remettre des commentaire */
 
 router.post('/panier/pay', (req, res) => {
-  const Prénom = req.body.Prénom
-  const Nom = req.body.Nom
+  const prenom = req.body.prenom // on recupere le name
+  const nom = req.body.nom // we recup the lastname
+
+  if(prenom ==''  || nom ==''){
+    res.status(400).json({message:'bad request'})
+    return
+  }
+
+  res.send("Merci " + prenom +" "+ nom + " pour votre achat")
+
+  req.session.destroy()
+  res.json(res.session.panier.articles)
+  
 })
 
 
