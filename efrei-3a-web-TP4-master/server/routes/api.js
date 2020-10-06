@@ -64,7 +64,7 @@ router.post('/panier', (req, res) => {
   }
 
   req.session.panier.articles.push(article)
-  res.json(req.session.panier.articles)
+  res.json(req.session.panier)
 })
 
 /* Remettre des commentaire */

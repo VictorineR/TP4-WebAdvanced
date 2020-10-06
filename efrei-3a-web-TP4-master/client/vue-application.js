@@ -24,13 +24,22 @@ var app = new Vue({
   async mounted () {
     const res = await axios.get('/api/articles')
     this.articles = res.data
-    // const res2 = await axios.get('/api/panier')
-    // this.panier = res2.data
+
+    const res2 = await axios.get('/api/panier')
+    this.panier = res2.data
   },
   methods: {
     async addArticle (article) {
       const res = await axios.post('/api/article', article)
       this.articles.push(res.data)
+    },
+
+    async addToPanier(articleId){
+      const article = {id: articleId, quantity: 1}
+      const res = await axios.post('/api/panier', article)
+
+      this.panier = res.data
+
     },
     async updateArticle (newArticle) {
       await axios.put('/api/article/' + newArticle.id, newArticle)
