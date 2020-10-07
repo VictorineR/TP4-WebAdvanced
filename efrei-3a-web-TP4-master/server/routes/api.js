@@ -110,7 +110,7 @@ router.put('/panier/:articleId', (req, res) => {
 
     req.session.panier.articles[i].quantity = quantity // we change the value quantity
     
-    res.json(req.session.panier.articles) // we return the basket
+    res.json(req.session.panier) // we return the basket
 
  
 })

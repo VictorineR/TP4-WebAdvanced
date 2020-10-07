@@ -60,10 +60,10 @@ var app = new Vue({
       this.panier = res.data
     },
 
-    async putInPanier (articleId) {
-      
-      const res2 = await axios.put('/api/panier/' + articleId)
-      this.panier = res2.data
+    async putInPanier (articleId, articleQuantity) {
+      const test = {id: articleId, quantity: articleQuantity}
+      const res = await axios.put('/api/panier/'+ articleId, test)
+      this.panier = res.data
     },
   }
 })
