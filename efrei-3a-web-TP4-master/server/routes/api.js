@@ -34,7 +34,7 @@ router.use((req, res, next) => {
  * Cette route doit retourner le panier de l'utilisateur, grâce à req.session
  */
 router.get('/panier', (req, res) => {
-  res.json(req.session.panier.articles)
+  res.json(req.session.panier)
 })
 
 /*
@@ -109,7 +109,7 @@ router.put('/panier/:articleId', (req, res) => {
     }
 
     req.session.panier.articles[i].quantity = quantity // we change the value quantity
-
+    
     res.json(req.session.panier.articles) // we return the basket
 
  
@@ -138,7 +138,7 @@ router.delete('/panier/:articleId', (req, res) => {
 
   req.session.panier.articles.splice(i,1) // we remove the wanted article from the basket
 
-  res.json(res.session.panier) // we return the modified array 
+  res.json(req.session.panier) // we return the modified array 
 })
 
 
@@ -190,6 +190,7 @@ router.post('/article', (req, res) => {
  * - DELETE /article/:articleId
  * Comme ces trois routes ont un comportement similaire, on regroupe leurs fonctionnalités communes dans un middleware
  */
+
 function parseArticle (req, res, next) {
   const articleId = parseInt(req.params.articleId)
 
@@ -226,6 +227,7 @@ router.route('/article/:articleId')
    * NOTE: lorsqu'on redémarre le serveur, la modification de l'article disparait
    *   Si on voulait persister l'information, on utiliserait une BDD (mysql, etc.)
    */
+
   .put(parseArticle, (req, res) => {
     const name = req.body.name
     const description = req.body.description

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Mon Panier</h2>
-    <ul v-for="article in panier" :key="article.id">
+    <ul v-for="article in panier.articles" :key="article.id">
       <li>Id: {{ article.id }} - Quantity: {{ article.quantity }} </li>
     </ul>
   </div>

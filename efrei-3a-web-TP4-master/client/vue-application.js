@@ -56,14 +56,14 @@ var app = new Vue({
     },
     async removeFromPanier (articleId) {
       
-      const res2 = await axios.delete('/api/panier/' + articleId)
-      this.panier = res2.data
+      const res = await axios.delete('/api/panier/' + articleId)
+      this.panier = res.data
     },
 
     async putInPanier (articleId) {
       
-      const res = await axios.put('/api/panier/:articleId' + articleId)
-      this.panier = res.data
+      const res2 = await axios.put('/api/panier/' + articleId)
+      this.panier = res2.data
     },
   }
 })
