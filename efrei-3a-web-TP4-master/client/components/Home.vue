@@ -1,68 +1,47 @@
 <template>
   <div>
-    <article v-for="article in articles" :key="article.id">
-      <div class="article-img">
-        <div :style="{ backgroundImage: 'url(' + article.image + ')' }"></div>
-      </div>
-      <div class="article-content" v-if="editingArticle.id !== article.id">
-        <div class="article-title">
-          <h2>{{ article.name }} - {{ article.price }}€</h2>
-          <div>
-            <button @click="removeFromPanier(article.id)">
-              Retirer du panier
-            </button>
-            <button @click="addToPanier(article.id)">
-              Ajouter au panier
-            </button>
-            <button @click="deleteArticle(article.id)">Supprimer</button>
-            <button @click="editArticle(article)">Modifier</button>
+    <div class="content">
+      <article v-for="article in articles" :key="article.id">
+        <div class="article-img">
+          <div :style="{ backgroundImage: 'url(' + article.image + ')' }"></div>
+        </div>
+        <div class="article-content" v-if="editingArticle.id !== article.id">
+          <div class="article-title">
+            <h2>{{ article.name }} - {{ article.price }}€</h2>
+            <div>
+
+              <button class="button" @click="addToPanier(article.id)" >Ajouter</button>
+              <button class="button" @click="removeFromPanier(article.id)">RetirerPanier</button>
+
+              <button class="button" @click="deleteArticle(article.id)">Supprimer</button>
+              <button class="button" @click="editArticle(article)">Modifier</button>
+            </div>
+          </div>
+          <div class="paragraphe">
+            <p>{{ article.description }}</p>
           </div>
         </div>
-        <p>{{ article.description }}</p>
-      </div>
-      <div class="article-content" v-else>
-        <div class="article-title">
-          <h2>
-            <input type="text" v-model="editingArticle.name" /> -
-            <input type="number" v-model="editingArticle.price" />
-          </h2>
-          <div>
-            <button @click="sendEditArticle()">Valider</button>
-            <button @click="abortEditArticle()">Annuler</button>
+        <div class="article-content" v-else>
+          <div class="article-title">
+            <h2><input type="text" v-model="editingArticle.name"> - <input type="number" v-model="editingArticle.price"></h2>
+            <div>
+              <button @click="sendEditArticle()">Valider</button>
+              <button @click="abortEditArticle()">Annuler</button>
+            </div>
           </div>
+
+          <p><textarea v-model="editingArticle.description"></textarea></p>
+          <input type="text" v-model="editingArticle.image" placeholder="Lien vers l'image">
         </div>
-        <p><textarea v-model="editingArticle.description"></textarea></p>
-        <input
-          type="text"
-          v-model="editingArticle.image"
-          placeholder="Lien vers l'image"
-        />
-      </div>
-    </article>
+      </article>
+    </div>
+
     <form @submit.prevent="addArticle">
       <h2>Nouveau produit à ajouter</h2>
-      <input
-        type="text"
-        v-model="newArticle.name"
-        placeholder="Nom du produit"
-        required
-      />
-      <input
-        type="number"
-        v-model="newArticle.price"
-        placeholder="Prix"
-        required
-      />
-      <textarea
-        type="text"
-        v-model="newArticle.description"
-        required
-      ></textarea>
-      <input
-        type="text"
-        v-model="newArticle.image"
-        placeholder="Lien vers l'image"
-      />
+      <input type="text" v-model="newArticle.name" placeholder="Nom du produit" required>
+      <input type="number" v-model="newArticle.price" placeholder="Prix" required>
+      <textarea type="text" v-model="newArticle.description" required></textarea>
+      <input type="text" v-model="newArticle.image" placeholder="Lien vers l'image">
       <button type="submit">Ajouter</button>
     </form>
   </div>
@@ -133,28 +112,91 @@ module.exports = {
 </script>
 
 <style scoped>
-article {
-  display: flex;
-}
+.content{
+  display: center;
+
+  text-align: center;
+  padding: 40px;
+} 
 
 .article-img {
-  flex: 1;
+  
+  display: center;
+  margin-right: auto;
+  margin-left: auto;
+
+  margin-top: 5%;
 }
 
 .article-img div {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background-size: cover;
 }
 
 .article-content {
-  flex: 3;
+  flex: 5;
 }
 
-.article-title {
-  display: flex;
-  justify-content: space-between;
+.article-title h2 {
+  justify-content: space-around;
+  text-align: flex;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(161, 56, 7);
 }
+
+.paragraphe {
+  float: center;
+
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(161, 56, 7);
+}
+
+.button{
+  border:none;
+	padding:6px 3px 6px 3px;
+	border-radius:2px;
+  margin-bottom: 40px;
+
+	box-shadow:3px 3px 12px gray;
+	background:white;
+	font:bold 13px;
+	color:black;
+
+  cursor: pointer;
+}
+
+.button:hover{
+  background: rgb(161, 56, 7);
+  color:white;
+}
+
+form {
+  background-color:rgba(245, 245, 245, 0);
+  border:1px dotted black;
+
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 5%;
+  padding:13px;
+  width:280px;
+}
+
+form h2{
+  justify-content: space-around;  
+
+  text-align: center;
+  font-size: 25px;
+  text-align: flex;
+
+  color: rgb(161, 56, 7);
+  
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+
+}
+
 
 textarea {
   width: 100%;

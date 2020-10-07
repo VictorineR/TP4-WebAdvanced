@@ -7,8 +7,7 @@
         <input type="number" v-model="article.quantity" placeholder="Quantity" required/>
         <button @click="putInPanier(article.id, article.quantity)">Change quantity</button>
       </div>
-      
-
+    
     </article>
   </div>
 </template>
@@ -34,4 +33,6 @@ module.exports = {
 </script>
 
 <style scoped>
+
+
 </style>

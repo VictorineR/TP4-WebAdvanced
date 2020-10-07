@@ -12,7 +12,7 @@
     <body>
         <div id="app">
           <header>
-            <h1>À la bonne franquette</h1>
+            <h1>Chez Fancine et François</h1>
             <nav>
               <router-link to='/'>Accueil</router-link>
               <router-link to='/panier'>Panier</router-link>
@@ -33,4 +33,35 @@
         </div>
         <script src="/vue-application.js"></script>
     </body>
+
+    <style>
+      body{
+        background: linear-gradient(to right, white, rgb(184, 151, 103));
+      }
+    
+      h1{
+        text-align: center;
+        font-size: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: rgb(161, 56, 7);
+    
+        text-decoration: underline;
+      }
+    
+      nav{
+        margin-top: 4%;
+        margin-bottom: 4%;
+        margin-right: 4%;
+    
+        border: none;
+        display: block;
+        text-align: center;
+        cursor: pointer;
+    
+        text-transform: uppercase;
+    
+    
+      }
+    
+    </style>
 </html>
