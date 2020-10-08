@@ -35,7 +35,7 @@
 
 <script>
 module.exports = {
-  props: { 
+  props: {
     articles: { type: Array, default: [] },
     panier: { type: Object },
   },
@@ -54,44 +54,15 @@ module.exports = {
 </script>
 
 <style scoped>
-
-h2{
-  justify-content: space-around;  
-  text-align: center;
-  font-size: 25px;
- 
-  color: black;  
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  
-}
-
-.article-content{
+.article-img {
   display: center;
-  text-align: center;
-  padding: 40px;
-
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5%;
 }
-
-.article-content h3{
-  justify-content: space-around;  
-  text-align: left;
-  font-size: 25px;
-  color: black;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  
-}
-
-.article-content p{
-  justify-content: space-around;  
-  text-align: left;
-  font-size: 17px;
-  color: black;
-}
-
 .article-img div {
   width: 120px;
   height: 120px;
   background-size: cover;
 }
-
 </style>
