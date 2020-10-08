@@ -60,8 +60,7 @@ h2{
   text-align: center;
   font-size: 25px;
  
-  color: rgb(161, 56, 7);
-  
+  color: black;  
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   
 }
@@ -77,7 +76,7 @@ h2{
   justify-content: space-around;  
   text-align: left;
   font-size: 25px;
-  color: rgb(161, 56, 7);
+  color: black;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   
 }
@@ -86,8 +85,7 @@ h2{
   justify-content: space-around;  
   text-align: left;
   font-size: 17px;
-  color: rgb(161, 56, 7);  
-
+  color: black;
 }
 
 .article-img div {

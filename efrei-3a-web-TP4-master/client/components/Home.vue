@@ -149,12 +149,14 @@ module.exports = {
   justify-content: space-around;
   text-align: flex;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: rgb(161, 56, 7);
+  color: black;
+
 }
 .paragraphe {
   float: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: rgb(161, 56, 7);
+  color: black;
+
 }
 .button{
   border:none;
@@ -164,11 +166,11 @@ module.exports = {
 	box-shadow:3px 3px 12px gray;
 	background:white;
 	font:bold 13px;
-	color:black;
+	color:black;  
   cursor: pointer;
 }
 .button:hover{
-  background: rgb(161, 56, 7);
+  background: black;
   color:white;
 }
 
@@ -192,10 +194,8 @@ form h2{
   text-align: center;
   font-size: 25px;
   text-align: flex;
-  color: rgb(161, 56, 7);
-  
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  
+  color: black;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
 }
 textarea {
   width: 100%;
