@@ -14,7 +14,7 @@
 
 <script>
 module.exports = {
-  props: {
+  props: { 
     articles: { type: Array, default: [] },
     panier: { type: Object }
   },
@@ -33,6 +33,16 @@ module.exports = {
 </script>
 
 <style scoped>
+h2{
+  justify-content: space-around;  
+  text-align: center;
+  font-size: 25px;
+  text-align: flex;
+  color: rgb(161, 56, 7);
+  
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+}
 
 
 </style>

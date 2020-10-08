@@ -1,5 +1,5 @@
 <!doctype>
-<html lang="fr">
+<html lang="fr"> 
     <head>
         <meta charset="utf-8">
         <title>Mon magasin en ligne 100% bons plans</title>
@@ -31,10 +31,15 @@
             ></router-view>
           </main>
         </div>
+
+        <footer>
+          <p>Victor GARNIER & Victorine RICHARD</p>
+      </footer>
+      
         <script src="/vue-application.js"></script>
     </body>
 
-    <style>
+<style>
   body{
     background: linear-gradient(to right, white, rgb(184, 151, 103));
   }
@@ -42,6 +47,7 @@
   h1{
     text-align: center;
     font-size: 50px;
+    
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: rgb(161, 56, 7);
 
@@ -71,5 +77,17 @@
     
   }
 
+  footer p{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  footer{
+    background-color: rgba(233, 109, 8, 0.5);
+
+    float: bottom;
+    bottom: 0;
+    width:100%;
+  }
 </style>
 </html>

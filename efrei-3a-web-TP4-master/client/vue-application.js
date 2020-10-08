@@ -3,7 +3,7 @@ const Panier = window.httpVueLoader('./components/Panier.vue')
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/panier', component: Panier },
+  { path: '/panier', component: Panier }, 
 ]
 
 const router = new VueRouter({
