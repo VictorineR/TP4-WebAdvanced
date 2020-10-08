@@ -8,11 +8,10 @@
       
         <input
           type="number"
-          v-model="articleQuantity"
+          v-model="article.articleQuantity"
           placeholder="Quantité"
-          required
         />
-        <button @click="putInPanier(article.id, articleQuantity)">
+        <button @click="putInPanier(article.id, article.articleQuantity)">
           Changer la quantité
         </button>
       </div>
