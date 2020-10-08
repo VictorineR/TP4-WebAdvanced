@@ -46,14 +46,16 @@
       </article>
     </div>
 
-    <form @submit.prevent="addArticle">
-      <h2>Nouveau produit à ajouter</h2>
-      <input type="text" v-model="newArticle.name" placeholder="Nom du produit" required>
-      <input type="number" v-model="newArticle.price" placeholder="Prix" required>
-      <textarea type="text" v-model="newArticle.description" required></textarea>
-      <input type="text" v-model="newArticle.image" placeholder="Lien vers l'image">
-      <button type="submit">Ajouter</button>
-    </form>
+    <div class="formulaire">
+      <form @submit.prevent="addArticle">
+        <h2>Nouveau produit à ajouter</h2>
+        <input type="text" v-model="newArticle.name" placeholder="Nom du produit" required>
+        <input type="number" v-model="newArticle.price" placeholder="Prix" required>
+        <textarea type="text" v-model="newArticle.description" placeholder="Description du produit" required></textarea>
+        <input type="text" v-model="newArticle.image" placeholder="Lien vers l'image">
+        <button type="submit">Ajouter</button>
+      </form>
+    </div>
 
     <div id="scroll_to_top">
       <a href="#top"><img src="img/top.png" alt="Top" /></a>
@@ -136,8 +138,8 @@ module.exports = {
   
 }
 .article-img div {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   background-size: cover;
 }
 .article-content {
@@ -169,6 +171,12 @@ module.exports = {
   background: rgb(161, 56, 7);
   color:white;
 }
+
+.formulaire{
+  padding-left: 37%;
+  margin-bottom: 20px;
+}
+
 form {
   background-color:rgba(245, 245, 245, 0);
   border:1px dotted black;
