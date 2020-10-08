@@ -4,8 +4,8 @@
     <article v-for="article in panier.articles" :key="article.id">
       <div class="article-content">
         <h3>Id: {{ article.id }} - Quantity: {{ article.quantity }} </h3>
-        <input type="number" v-model="article.quantity" placeholder="Quantity" required/>
-        <button @click="putInPanier(article.id, article.quantity)">Change quantity</button>
+        <input type="number" v-model="quantity" placeholder="Quantity" required/>
+        <button @click="putInPanier(article.id, quantity)">Change quantity</button>
       </div>
     
     </article>

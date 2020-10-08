@@ -10,8 +10,8 @@
             <h2>{{ article.name }} - {{ article.price }}€</h2>
             <div>
 
-              <button class="button" @click="addToPanier(article.id)" >Ajouter</button>
-              <button class="button" @click="removeFromPanier(article.id)">RetirerPanier</button>
+              <button class="button" v-if="panier.articles.find(a => a.id === article.id) == undefined" @click="addToPanier(article.id)" >Ajouter au panier</button>
+              <button class="button" v-else @click="removeFromPanier(article.id)">Retirer du panier</button>
 
               <button class="button" @click="deleteArticle(article.id)">Supprimer</button>
               <button class="button" @click="editArticle(article)">Modifier</button>
@@ -71,13 +71,11 @@ module.exports = {
       isActivated: false,
     };
   },
-
   methods: {
     
     addArticle() {
       this.$emit("add-article", this.newArticle);
     },
-
     addToPanier(articleId) {
       this.$emit("add-to-panier", articleId, this.article);
     },
@@ -114,67 +112,53 @@ module.exports = {
 <style scoped>
 .content{
   display: center;
-
   text-align: center;
   padding: 40px;
 } 
-
 .article-img {
   
   display: center;
   margin-right: auto;
   margin-left: auto;
-
   margin-top: 5%;
 }
-
 .article-img div {
   width: 120px;
   height: 120px;
   background-size: cover;
 }
-
 .article-content {
   flex: 5;
 }
-
 .article-title h2 {
   justify-content: space-around;
   text-align: flex;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: rgb(161, 56, 7);
 }
-
 .paragraphe {
   float: center;
-
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: rgb(161, 56, 7);
 }
-
 .button{
   border:none;
 	padding:6px 3px 6px 3px;
 	border-radius:2px;
   margin-bottom: 40px;
-
 	box-shadow:3px 3px 12px gray;
 	background:white;
 	font:bold 13px;
 	color:black;
-
   cursor: pointer;
 }
-
 .button:hover{
   background: rgb(161, 56, 7);
   color:white;
 }
-
 form {
   background-color:rgba(245, 245, 245, 0);
   border:1px dotted black;
-
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -182,22 +166,16 @@ form {
   padding:13px;
   width:280px;
 }
-
 form h2{
   justify-content: space-around;  
-
   text-align: center;
   font-size: 25px;
   text-align: flex;
-
   color: rgb(161, 56, 7);
   
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   
-
 }
-
-
 textarea {
   width: 100%;
 }
